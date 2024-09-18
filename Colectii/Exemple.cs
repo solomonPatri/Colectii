@@ -417,20 +417,88 @@ namespace Colectii.Colectii
                 Console.WriteLine(item);
             }
 
-            
 
 
 
 
 
 
+            SortedSet<IVehicul> sortedset = new SortedSet<IVehicul>();
 
 
 
+            Masina mas10 = Masina.MasinaBuilder
+          .Create()
+          .Id()
+          .Model("Renault")
+          .AnFabrica(2013)
+          .NameProp("Rebeca")
+          .Cost(3938219)
+          .Build();
+
+            Masina mas11 = Masina.MasinaBuilder
+           .Create()
+           .Id()
+           .Model("Ford")
+           .AnFabrica(2018)
+           .NameProp("Sofia")
+           .Cost(183623)
+           .Build();
+
+            Autobus bus10 = Autobus.AutobusBuilder
+             .Create()
+             .Id()
+             .Firma("Brasov srlTour")
+             .NrPasajeri(2341)
+             .NameSofer("Marius")
+             .Build();
+
+            Autobus bus12 = Autobus.AutobusBuilder
+               .Create()
+               .Id()
+               .Firma("Tursib")
+               .NrPasajeri(98)
+               .NameSofer("Andrei")
+               .Build();
+
+            //adaugam in lista
+
+            Console.WriteLine("Toate elementele recent adaugate in colectie: " + "\n");
+            sortedset.Add(mas10);
+            sortedset.Add(mas11);
+            sortedset.Add(bus10);
+            sortedset.Add(bus12);
+
+            foreach (var item in sortedset)
+            {
+                Console.WriteLine(item);
+            }
 
 
+            //Remove 
+            Console.WriteLine("Dupa stergerea autobuzului bus12(Brasov SrlTour) : " + "\n");
+            sortedset.Add(bus10);
+            foreach (var item in sortedset)
+            {
+                Console.WriteLine(item);
+            }
+
+         
+
+            // Min element
+            Console.WriteLine("Elementul cel mai mic din colectie: "+"\n");
+            Console.WriteLine(sortedset.Min());
 
 
+            //Max Element
+            Console.WriteLine("Elementul cel mai mare din colectie: " + "\n");
+            Console.WriteLine(sortedset.Max());
+
+            //Contains...
+
+            Console.WriteLine("Exista masina nr 11 (Ford) : " + "\n");
+
+            Console.WriteLine(sortedset.Contains(mas11));
 
 
 
