@@ -1,0 +1,14 @@
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\Colectii.GeneratedMSBuildEditorConfig.editorconfig
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\Colectii.AssemblyInfoInputs.cache
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\Colectii.AssemblyInfo.cs
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\Colectii.csproj.CoreCompileInputs.cache
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\bin\Debug\net6.0\Colectii.exe
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\bin\Debug\net6.0\Colectii.deps.json
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\bin\Debug\net6.0\Colectii.runtimeconfig.json
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\bin\Debug\net6.0\Colectii.dll
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\bin\Debug\net6.0\Colectii.pdb
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\Colectii.dll
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\refint\Colectii.dll
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\Colectii.pdb
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\Colectii.genruntimeconfig.cache
+C:\mycode\csharp\oop-basics\abstractizarea\Interfete\Colectii\obj\Debug\net6.0\ref\Colectii.dll
