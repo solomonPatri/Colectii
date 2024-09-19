@@ -7,7 +7,7 @@ internal class Program
     {
 
 
-        Exemplul2.StivaAndCoada();
+        Exemplul2.ReacapitulareSet();
 
         //Exemple.SetExemp();
 

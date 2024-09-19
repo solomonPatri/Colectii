@@ -8,24 +8,29 @@ using System.Threading.Tasks;
 
 namespace Colectii.PropietarDate
 {
-    public  class Profesor : IPersoana,IComparable<Profesor>
+    public  class Profesor : Persoana,IComparable<Profesor>
     {
-        private int _id;
+        
         private string _name;
         private int _age;
         private string _veh;
         private static int _genId;
 
+        public Profesor(int id, string type, string name, int age, string veh):base(id,"Profesor")
+        {
+            _name=  name;
+            _age= age;
+            _veh= veh;
+
+
+
+        }
+
         public Profesor()
         {
 
         }
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
-
+        
         public string Name
         {
             get { return _name; }
@@ -62,7 +67,7 @@ namespace Colectii.PropietarDate
             }
             public ProfesorBuilder Id()
             {
-                _profe._id = _genId ;
+                ( _profe as Persoana).Id = _genId ;
                 _genId++;
                 return this;
             }
@@ -113,7 +118,24 @@ namespace Colectii.PropietarDate
             return 0;
 
         }
+        public string CompareToType(Student other)
+        {
 
+            if ((other as Persoana).Type.Equals("Profesor"))
+            {
+
+
+                return (other as Persoana).Type;
+
+
+            }
+
+            return null;
+
+
+
+
+        }
         public override bool Equals(object? profe)
         {
             return profe is Profesor other && Id.Equals(other.Id);
@@ -123,9 +145,21 @@ namespace Colectii.PropietarDate
 
         public override string ToString()
         {
-            string t = "Name: " + Name + "\n" + "Age: " + Age + "\n" + "Vehicul:" + Veh + "\n";
+            string t = " " + base.ToString();
+            t+= "Name: " + Name + "\n" + "Age: " + Age + "\n" + "Vehicul:" + Veh + "\n";
+
             return t;
         }
+
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+
+
+
 
 
 

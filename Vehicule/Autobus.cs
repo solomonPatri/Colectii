@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -7,24 +8,32 @@ using System.Threading.Tasks;
 
 namespace Colectii.Vehicule
 {
-    public class Autobus : IVehicul, IComparable<Autobus>
+    public class Autobus : Vehicul, IComparable<Autobus>
     {
-        private int _id;
+        
         private string _firma;
         private int _nrPasanjeri;
         private string _soferName;
         private static int _generateId = 30;
 
-        public Autobus()
+        public Autobus(int id, string type, string firma, int nrpasaj, string namesofer) : base(id, "Autobus")
+        {
+            _firma = firma ;
+            _nrPasanjeri = nrpasaj ;
+            _soferName = namesofer ;
+
+
+
+
+
+        }
+
+         public Autobus()
         {
 
         }
 
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+
         public string Firma
         {
             get { return _firma; }
@@ -57,7 +66,7 @@ namespace Colectii.Vehicule
             }
             public AutobusBuilder Id()
             {
-                _autobus._id = _generateId;
+                (_autobus as Vehicul).Id = _generateId;
                 _generateId++;
                 return this;
 
@@ -115,6 +124,22 @@ namespace Colectii.Vehicule
             return 0;
         }
 
+        public Vehicul CompareToByType(Autobus bus)
+        {
+            if (_soferName.Equals(bus.SoferName))
+            {
+                return bus;
+            }
+            else
+            {
+                return null;
+            }
+
+
+
+        }
+
+
         public override bool Equals(object? bus)
         {
             return bus is Autobus other && Id.Equals(other.Id);
@@ -124,7 +149,7 @@ namespace Colectii.Vehicule
 
         public override string ToString()
         {
-            string t = " ";
+            string t = " "+base.ToString();
             t += "Firma: " + Firma + "\n" + "Nr Pasajeri: " + NrPasaj + "\n" + "Name Sofer: " + SoferName + "\n";
             return t;
         }

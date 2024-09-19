@@ -16,7 +16,7 @@ namespace Colectii.Colectii
 
         public void  TeorieListe()
         {
-            List<IVehicul> veh = new List<IVehicul>();
+            List<Vehicul> veh = new List<Vehicul>();
 
             Masina masina = Masina.MasinaBuilder
 
@@ -162,7 +162,7 @@ namespace Colectii.Colectii
         {
             //LIFO last in first out
 
-            Stack<IVehicul> s = new Stack<IVehicul>();
+            Stack<Vehicul> s = new Stack<Vehicul>();
 
             Masina mas7 = Masina.MasinaBuilder
 
@@ -225,7 +225,7 @@ namespace Colectii.Colectii
             //   queue 1234 234
    
 
-            Queue <IVehicul> coada = new Queue<IVehicul> ();
+            Queue <Vehicul> coada = new Queue<Vehicul> ();
 
              Masina masina5 = Masina.MasinaBuilder
           .Create()
@@ -270,7 +270,7 @@ namespace Colectii.Colectii
 
             foreach(var item in coada)       //Nu se poate folosi pentru modifcare doar parcurgere 
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
             }
              Console.WriteLine("Afisarea primului item din coada"+"\n");
             Console.WriteLine(coada.Peek());   //Fiind coada acuma imi afiseaza prima din coada  fata de stiva care era ultimul 
@@ -281,7 +281,7 @@ namespace Colectii.Colectii
 
             foreach(var item in coada)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
             }
 
 
@@ -296,7 +296,7 @@ namespace Colectii.Colectii
             {
                 if(ct==2)
                 {
-                    Console.WriteLine(item);
+                    Console.WriteLine(item.ToString());
                 }
                 ct++;
                
@@ -311,7 +311,7 @@ namespace Colectii.Colectii
         public  static void SetExemp()
         {
 
-            HashSet<IVehicul> hash = new HashSet<IVehicul>();
+            HashSet<Vehicul> hash = new HashSet<Vehicul>();
 
             Masina mas1 = Masina.MasinaBuilder
           .Create()
@@ -357,7 +357,7 @@ namespace Colectii.Colectii
 
             foreach (var item in hash)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
 
             }
 
@@ -370,7 +370,7 @@ namespace Colectii.Colectii
 
             foreach (var item in hash)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
 
             }
 
@@ -397,7 +397,7 @@ namespace Colectii.Colectii
 
             foreach (var item in hash)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
 
             }
 
@@ -414,16 +414,16 @@ namespace Colectii.Colectii
 
             foreach (var item in hash)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
             }
 
 
 
+            Console.WriteLine("///////////////////Sorted////////////////////////////////");
 
 
 
-
-            SortedSet<IVehicul> sortedset = new SortedSet<IVehicul>();
+            SortedSet<Vehicul> sortedset = new SortedSet<Vehicul>(new ComparatorMasina());
 
 
 
@@ -471,34 +471,43 @@ namespace Colectii.Colectii
 
             foreach (var item in sortedset)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
             }
 
 
             //Remove 
             Console.WriteLine("Dupa stergerea autobuzului bus12(Brasov SrlTour) : " + "\n");
-            sortedset.Add(bus10);
+            sortedset.Remove(bus10);
             foreach (var item in sortedset)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.ToString());
             }
 
          
 
             // Min element
             Console.WriteLine("Elementul cel mai mic din colectie: "+"\n");
-            Console.WriteLine(sortedset.Min());
+            Console.WriteLine(sortedset.Min().ToString());
 
 
             //Max Element
             Console.WriteLine("Elementul cel mai mare din colectie: " + "\n");
-            Console.WriteLine(sortedset.Max());
+            Console.WriteLine(sortedset.Max().ToString());
 
             //Contains...
 
-            Console.WriteLine("Exista masina nr 11 (Ford) : " + "\n");
+            Console.WriteLine("Exista masina nr 10  : " + "\n");
 
-            Console.WriteLine(sortedset.Contains(mas11));
+            Console.WriteLine(sortedset.Contains(bus10)); ////false deoarece lam sters anterior
+
+            //Compare By Type
+            Console.WriteLine("Exista acest autobus : " + "\n");
+
+            Console.WriteLine(sortedset.Contains(mas10));
+
+            Console.WriteLine("Exista aceasta masina doar in hash : " + "\n");
+            Console.WriteLine(sortedset.Contains(mas1));
+
 
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -8,9 +9,9 @@ using System.Windows.Markup;
 
 namespace Colectii.Vehicule
 {
-    public class Masina : IVehicul, IComparable<Masina>
+    public class Masina : Vehicul, IComparable<Masina>
     {
-        private int _id;
+        
         private string _model;
         private int _anFabrica;
         private string _prop;
@@ -18,21 +19,23 @@ namespace Colectii.Vehicule
         private static int genId = 1;
 
 
+        public Masina(int id,string type,string model,int anfabr,string prop,int cost):base(id,"Masina")
+        {
+            model = _model;
+            _anFabrica = anfabr;
+            _prop = prop;
+            _cost = cost;
+
+
+
+
+        }
+
         public Masina()
         {
 
-
         }
-
-        public int Id
-        {
-            get { return _id; }
-            set
-            {
-                _id = value;
-            }
-
-        }
+       
 
         public string Model
         {
@@ -74,7 +77,7 @@ namespace Colectii.Vehicule
             }
             public MasinaBuilder Id()
             {
-                _masina._id = genId;
+                (_masina as Vehicul).Id = genId;
                 genId++;
                 return this;
             }
@@ -135,6 +138,19 @@ namespace Colectii.Vehicule
 
         }
 
+        public Vehicul CompareToByType(Masina mas)
+        {
+            if (_model.Equals(mas.Model))
+            {
+                return mas;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public override bool Equals(object? masina)
         {
             return masina is Masina other && Id.Equals(other.Id);
@@ -144,34 +160,13 @@ namespace Colectii.Vehicule
 
         public override string ToString()
         {
-            string t = "Model: " + Model + "\n" + "An fabricatie: " + AnFabrica + "\n" + "Propietar:" + Prop + "\n" + "Pretul: " + Cost + "\n";
+            string t = " "+ base.ToString();
+              t+=  "Model: " + Model + "\n" + "An fabricatie: " + AnFabrica + "\n" + "Propietar:" + Prop + "\n" + "Pretul: " + Cost + "\n";
             return t;
         }
 
 
-        public Masina Add(Masina newcar)
-        {
-            Console.WriteLine("Model: ");
-            string newmodel = Console.ReadLine();
-            Console.WriteLine("An fabrica: ");
-            int newyear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Propietar: ");
-            string prop = Console.ReadLine();
-            Console.WriteLine("Pretul: ");
-            int newcost = int.Parse(Console.ReadLine());
-
-            Masina car = MasinaBuilder
-                .Create()
-                .Model(newmodel)
-                .AnFabrica(newyear)
-                .NameProp(prop)
-                .Cost(newcost)
-                .Build();
-
-
-            newcar = car;
-            return newcar;
-        }
+       
 
 
 

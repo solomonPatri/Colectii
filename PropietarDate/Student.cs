@@ -1,6 +1,7 @@
 ﻿using Colectii.Vehicule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -9,25 +10,30 @@ using System.Windows.Markup;
 
 namespace Colectii.PropietarDate
 {
-    public class Student  :IComparable<Student>,IPersoana
+    public class Student  :Persoana,IComparable<Student>
     {
-        private int _id;
+        
         private string _name;
         private string _email;
         private string _phone;
         private int _age;
         private static int _genId;
 
+
+        public Student(int id,string type,string name, string email,string phone,int age) : base(id, "Student")
+        {
+            _name = name;
+            _email = email;
+            _phone = phone; 
+            _age = age; 
+
+        }
         public Student()
         {
 
         }
 
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-            }
+     
         public string Name { 
             get { return _name; }
             set { _name = value; }
@@ -70,7 +76,7 @@ namespace Colectii.PropietarDate
             public StudentBuilder Id()
             {
 
-                _student._id = _genId;
+                (_student as Persoana).Id = _genId;
                 _genId++;
                 return this;
             }
@@ -131,6 +137,25 @@ namespace Colectii.PropietarDate
 
         }
 
+        public string CompareToType(Student other)
+        {
+            
+            if((other as Persoana).Type.Equals("Student")){
+
+
+                return (other as Persoana).Type;
+
+
+            }
+
+            return null;
+
+
+
+
+        }
+
+
         public override bool Equals(object? student)
         {
             return student is Student other && Id.Equals(other.Id);
@@ -140,13 +165,18 @@ namespace Colectii.PropietarDate
 
         public override string ToString()
         {
-            string t = "Name: "+ Name +"\n "+"Email: " + Email + "\n" + "Phone:" + Phone + "\n" + "Age: " + Age + "\n";
+            string t = " "+base.ToString();
+                t+="Name: "+ Name +"\n "+"Email: " + Email + "\n" + "Phone:" + Phone + "\n" + "Age: " + Age + "\n";
             return t;
         }
 
 
+        ///Pentru hashcode ne returneaza id
 
-
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode(); 
+        }
 
 
 

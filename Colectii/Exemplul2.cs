@@ -12,7 +12,7 @@ namespace Colectii.Colectii
 
         public static void RecapitulareTeorie()
         {
-            List<IPersoana> pers = new List<IPersoana>();
+            List<Persoana> pers = new List<Persoana>();
 
 
             Student s1 = Student.StudentBuilder
@@ -105,7 +105,7 @@ namespace Colectii.Colectii
         public static void StivaAndCoada()
         {
 
-            Stack<IPersoana> stiva = new Stack<IPersoana>();
+            Stack<Persoana> stiva = new Stack<Persoana>();
 
             Student s1 = Student.StudentBuilder
            .Create()
@@ -145,7 +145,7 @@ namespace Colectii.Colectii
            // Console.WriteLine(stiva.Peek());
 
 
-            Queue<IPersoana> coada2 = new Queue<IPersoana>();
+            Queue<Persoana> coada2 = new Queue<Persoana>();
 
             Student s3 = Student.StudentBuilder
                 .Create()
@@ -194,7 +194,7 @@ namespace Colectii.Colectii
 
             }
 
-            Console.WriteLine( coada2.Contains(p4));   //DAca exista imi afiseaza True
+            Console.WriteLine( coada2.Contains(p4));   //Daca exista imi afiseaza True
 
 
             Console.WriteLine(coada2.Peek());   //Imi afiseaza primul element din lista
@@ -214,10 +214,178 @@ namespace Colectii.Colectii
         {
 
 
-            HashSet <IPersoana> setrecap = new HashSet <IPersoana>();
+            HashSet <Persoana> hashrecap = new HashSet <Persoana>();
+
+            Student s8 = Student.StudentBuilder
+                .Create()
+                .Id()
+                .Name("Andres")
+                .Age(18)
+                .Email("Andres23@gmail.com")
+                .Phone("02836166372")
+                .Build();
+
+            Student s9 = Student.StudentBuilder
+               .Create()
+               .Id()
+               .Name("Maria")
+               .Age(15)
+               .Email("Maria_ana321@gmail.com")
+               .Phone("9275162736")
+               .Build();
+            Student s10 = Student.StudentBuilder
+               .Create()
+               .Id()
+               .Name("Matias")
+               .Age(36)
+               .Email("matias_mateo12@gmail.com")
+               .Phone("0019837122231")
+               .Build();
+
+            Profesor p8 = Profesor.ProfesorBuilder
+                .Create()
+                .Id()
+                .Name("Fernando")
+                .Vehicul("Dacia Sandero")
+                .Age(45)
+                .Build();
+
+            Profesor p9 = Profesor.ProfesorBuilder
+               .Create()
+               .Id()
+               .Name("Sandra")
+               .Vehicul("Renault Vegane")
+               .Age(23)
+               .Build();
+
+            Profesor p10 = Profesor.ProfesorBuilder
+               .Create()
+               .Id()
+               .Name("Marcos")
+               .Vehicul("Ford Puma")
+               .Age(35)
+               .Build();
 
 
-             
+            Console.WriteLine("Persoanele" + "\n");
+
+            hashrecap.Add(s8);
+            hashrecap.Add(s9);
+            hashrecap.Add(s10);
+            hashrecap.Add(p8);
+            hashrecap.Add(p9);
+            hashrecap.Add(p10);
+
+            foreach (var item in hashrecap)
+            {
+                Console.WriteLine(item.ToString());
+
+            }
+
+
+            Console.WriteLine("Stergem pe studenta Maria: " + "\n");
+
+            hashrecap.Remove(s9);
+
+            foreach(var item in hashrecap)
+            {
+                Console.WriteLine(item.ToString());
+
+            }
+
+            Console.WriteLine("Exista profesorul nr 10" + "\n");
+
+            Console.WriteLine(hashrecap.Contains(p10));
+
+
+            SortedSet<Persoana> sortedrecap = new SortedSet<Persoana>();
+
+
+            Student s11 = Student.StudentBuilder
+               .Create()
+               .Id()
+               .Name("Andres")
+               .Age(18)
+               .Email("Andres23@gmail.com")
+               .Phone("02836166372")
+               .Build();
+
+            Student s12 = Student.StudentBuilder
+               .Create()
+               .Id()
+               .Name("Maria")
+               .Age(15)
+               .Email("Maria_ana321@gmail.com")
+               .Phone("9275162736")
+               .Build();
+            Student s13 = Student.StudentBuilder
+               .Create()
+               .Id()
+               .Name("Matias")
+               .Age(36)
+               .Email("matias_mateo12@gmail.com")
+               .Phone("0019837122231")
+               .Build();
+
+            Profesor p11 = Profesor.ProfesorBuilder
+                .Create()
+                .Id()
+                .Name("Fernando")
+                .Vehicul("Dacia Sandero")
+                .Age(45)
+                .Build();
+
+            Profesor p12 = Profesor.ProfesorBuilder
+               .Create()
+               .Id()
+               .Name("Sandra")
+               .Vehicul("Renault Vegane")
+               .Age(23)
+               .Build();
+
+            Profesor p13 = Profesor.ProfesorBuilder
+               .Create()
+               .Id()
+               .Name("Marcos")
+               .Vehicul("Ford Puma")
+               .Age(35)
+               .Build();
+
+            Console.WriteLine("Persoanele respective sunt :");
+            sortedrecap.Add(s12);
+            sortedrecap.Add(s13);
+            sortedrecap.Add(s11);
+            sortedrecap.Add(p12);
+            sortedrecap.Add(p11);
+            sortedrecap.Add(p13);
+
+
+            foreach(var item  in sortedrecap)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Dupa stergerea profesorului Sandra");
+
+            sortedrecap.Remove(p12);
+
+
+            foreach (var item in sortedrecap)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.WriteLine("Exista studentul Matias ");
+
+            Console.WriteLine(sortedrecap.Contains(s13));
+
+
+
+
+
+
+
+
 
 
 
